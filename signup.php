@@ -1,13 +1,3 @@
-<?php
-	if ($_SERVER['REQUEST_METHOD'] == "GET")
-	{
-		session_start();
-	}
-	else
-	{
-		header("Location:index.php");
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +17,7 @@
 
 	<link rel="stylesheet" href="css/searchstyle.css"> <!-- Search Result Page style -->
 	<link rel="stylesheet" href="css/login.css"> <!-- Login Dialog style -->
+	<link rel="stylesheet" href="css/signup.css"> <!-- Signup style -->
 
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 
@@ -86,7 +77,7 @@
 
     				<div class="container" style="background-color:#f1f1f1">
       					<!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
-      					<span class="psw"><a href="signup.php">Sign UP!</a></span>
+      					<!-- <span class="psw"><a href="#">Sign Up!</a></span> -->
     				</div>
   				</form>
 			</div>
@@ -94,30 +85,39 @@
 	</nav>
 
 
-				<div id="large-header" class="large-header-search">
+				<!-- <div id="large-header" class="large-header-search">
 					<canvas id="demo-canvas"></canvas>
 					<h1 class="main-title-search"><b style="color: black; font-style: italic;"> Good Food brings<i style="color: #ffcc00;"><br>Good Luck</i></b></h1>
-				</div>
-				<br><br><br>
+				</div> -->
+				<br><br><br><br><br><br><br><br><br>
 
 	<div class="cd-main-body cd-main-content box-shadow">
 		<div class="cd-container" style="margin-top: 10rem;">
 			<h4 style="color: rgb(212,175,55);"></h4>
-			<h1 style="font-family: Calibri;">Result: <?php $_SESSION['area'] = $_GET['area']; echo $_SESSION['area']; ?></h1>
-			<br><br>
-			<table class="result-table" align="center" style="line-height: 1.6; font-family: Calibri; font-size: 16px; color: black;">
-				<?php
-					$_SESSION['area'] = $_GET['area'];
-					$_SESSION['food'] = $_GET['food'];
-					$_SESSION['price'] = $_GET['price'];
-
-					require 'indexhandler.php';
-					session_destroy();
-				?>
-			</table>
-			<br><br><br><br>
-			<hr>
-			<br><br><br><br>
+			<h1 style="font-family: Calibri;">Sign UP Form</h1>
+			<br><br><br>
+			<div>
+			<form name="signup" action="signuphandler.php" method="POST">
+				<table class="signup-form">
+					<tr>
+						<td><p style="line-height: 1.6; font-family: Calibri; font-size: 20px; color: black;">Name</p></td>
+						<td>: <input type="text" name="uname" required></td>
+					</tr>
+					<tr>
+						<td><p style="line-height: 1.6; font-family: Calibri; font-size: 20px; color: black;">Username</p></td>
+						<td>: <input type="text" name="un" required></td>
+					</tr>
+					<tr>
+						<td><p style="line-height: 1.6; font-family: Calibri; font-size: 20px; color: black;">Password</p></td>
+						<td>: <input type="password" name="pw" required></td>
+					</tr>
+					<tr>
+						<td>&nbsp</td>
+						<td><button type="submit" name="signup">Signup</button></td></tr>
+				</table>
+			</form>
+			</div>
+			<br><br><br><br><br><br><br><br><br>
 		</div>
 	</div>
 

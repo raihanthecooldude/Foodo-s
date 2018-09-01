@@ -15,6 +15,9 @@
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<link rel="stylesheet" href="css/component.css"> <!-- Resource style -->
 	<link rel="stylesheet" href="css/animated-bg.css"> <!-- Resource style -->
+
+	<link rel="stylesheet" href="css/login.css"> <!-- Login Dialog style -->
+
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
   	
 	<title>Foodo's</title>
@@ -49,14 +52,40 @@
 			<li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
 			<li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
 
-			<li class="cd-label"><a href="login.php">Log In</a></li>
+			<li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In<!-- <a href="login.php">Log In</a> --></li>
+
+			<div id="id01" class="modal">
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  				<form class="modal-content animate" action="loginhandler.php" method="POST">
+  					<div class="imgcontainer">
+      					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+   					</div>
+    				<div class="container">
+      					<label><b>Username</b></label>
+      					<input type="text" placeholder="Enter Username" name="un" required class="usernames">
+      					<br>
+      					<label><b>Password</b></label>
+      					<input type="password" placeholder="Enter Password" name="pw" required class="passwords">
+        				<br>
+      					<button type="submit">Login</button><br>
+      					<label>
+        					<input type="checkbox" checked="checked" name="remember"> Remember me
+     					</label>
+    				</div>
+
+    				<div class="container" style="background-color:#f1f1f1">
+      					<!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
+      					<span class="psw"><a href="signup.php">Sign UP!</a></span>
+    				</div>
+  				</form>
+			</div>
 		</ul>
 	</nav>
 
 
 				<div id="large-header" class="large-header">
 					<canvas id="demo-canvas"></canvas>
-					<h1 class="main-title"><b> Always say <i style="color: #ffcc00;">Hello</i> to Food</b></h1>
+					<h1 class="main-title" style="font-family: Calibri;"><b> Always say <i style="color: #ffcc00;">Hello</i> to Food</b></h1>
 					<h1 class="">
 						<form name = "index" action = "search.php" method = "GET">
 							<select name="area" class="area-bar">
@@ -81,8 +110,8 @@
 								?>
 							</select>
 
-							<select name="food" class="food-bar">
-								<option value="food">Food Name</option>
+							<select name="food" class="food-bar" required>
+								<option value="">Food Name</option>
 								<?php
 
 									require 'config.php';
@@ -102,7 +131,7 @@
 									oci_close($c);
 								?>
 							</select>
-							<input type="text" name="price" placeholder="Price" class="price-bar">
+							<input type="text" name="price" placeholder="Price" class="price-bar price-text" required>
 							<button type="submit" name="hello" class="search-button">Search</button> 
 						</form>
 					</h1>
@@ -159,8 +188,8 @@
 		
 		<div class="cd-container" style="margin-top: 10rem;">
 			<h4 style="color: rgb(212,175,55);">Who We Are</h4>
-			<h1>The Amazing People Behind This</h1>
-			<p style="line-height: 1.6;"><br>There are 5 amazing people of <span style="font-weight: bold;">American International University - Bangladesh (AIUB)</span> from <span style="font-weight: bold; font-style: italic;">Bangladesh</span> who made this website.<br>&nbsp</p>
+			<h1 style="font-family: Calibri;">The Amazing People Behind This</h1>
+			<p style="line-height: 1.6; font-family: Calibri;"><br>There are 5 amazing people of <span style="font-weight: bold;">American International University - Bangladesh (AIUB)</span> from <span style="font-weight: bold; font-style: italic;">Bangladesh</span> who made this website.<br>&nbsp</p>
 			
 			<div class="cd-container-people">
 				<div class="cd-container-people-clmn-1">
@@ -187,6 +216,10 @@
 						<p style="line-height: 1.6; font-family: Calibri; font-size: 16px; color: black;"><br>A senti khor Dhanush fan who always thinks about the future but do nothing for the future.</p>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="cd-container" style="margin-top: 3rem;">
+			<div class="cd-container-people">
 				<div class="cd-container-people-clmn-3">
 						<img src="img/faysal.jpg">
 					<div class="cd-container-people-info">

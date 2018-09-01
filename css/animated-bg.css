@@ -13,7 +13,7 @@
   /*border: 3px solid red;*/
   position: absolute;
   width: 90%;
-  max-width: 860px;
+  max-width: 740px;
   left: 72%;
   top: 45%;
   bottom: auto;
@@ -130,7 +130,7 @@
   line-height: 1.5em;
 }
 
-input[type=text] {
+.price-text {
     width: 350px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -147,7 +147,8 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
     z-index: 4;
 }
-input[type=text]:focus {
+
+.price-text:focus {
     /*width: 100%;*/
     background-color: rgba(255,255,255,0.6);
 }
@@ -184,9 +185,9 @@ input[type=text]:focus {
   	/*border: 2px solid red;*/
   	position: absolute;
   	width: 90%;
-  	max-width: 255px;
+  	max-width: 200px;
   	left: 57%;
-  	top: 53%;
+  	top: 55%;
   	bottom: auto;
   	right: auto;
   	-webkit-transform: translateX(-50%) translateY(-50%);
@@ -217,12 +218,12 @@ input[type=text]:focus {
 }
 
 .price-bar {
-	border: 3px solid red;
+	/*border: 3px solid red;*/
   	position: absolute;
   	width: 90%;
-  	max-width: 255px;
+  	max-width: 200px;
   	left: 87%;
-  	top: 53%;
+  	top: 55%;
   	bottom: auto;
   	right: auto;
   	-webkit-transform: translateX(-50%) translateY(-50%);
@@ -240,9 +241,9 @@ input[type=text]:focus {
   	/*border: 2px solid red;*/
   	position: absolute;
   	width: 90%;
-  	max-width: 255px;
+  	max-width: 200px;
   	left: 72%;
-  	top: 53%;
+  	top: 55%;
   	bottom: auto;
   	right: auto;
   	-webkit-transform: translateX(-50%) translateY(-50%);
@@ -269,7 +270,7 @@ input[type=text]:focus {
   	width: 90%;
   	max-width: 150px;
   	left: 89%;
-  	top: 62%;
+  	top: 65%;
   	bottom: auto;
   	right: auto;
   	-webkit-transform: translateX(-50%) translateY(-50%);

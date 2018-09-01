@@ -47,6 +47,10 @@
 				// echo $area." ".$row['RESTAURANT_NAME']." ".$row['FOOD_NAME']." ".$row['PRICE'];
 				// var_dump($row);
 				// echo "<br>";
+				if($count==0)
+				{
+					echo "<tr> <th>Restaurant Name</th> <th>Food Name</th> <th>Price</th> </tr>";
+				}
 				$count=1;
 
 				echo "<tr>";
@@ -58,7 +62,7 @@
 
 			if($count==0)
 			{
-				echo "There is no restaurant within this price range in this area. Search again! Thank You.";
+				echo "<p style='line-height: 1.6; font-family: Calibri; font-size: 16px; color: black;'>There is no restaurant within this price range in this area. <a href='index.php'>Search again!</a> Thank You.</p>";
 			}
 		}
 		oci_close($c);
