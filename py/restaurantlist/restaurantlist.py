@@ -35,6 +35,7 @@ for city in area_details_json_data1['city']:
         if area_url not in area_url_list and city['id'] == "1":
 
             area_url_list.append(area_url)
+            cur.callproc('insert_into_area', [area['id'], area['name'], area_url])
             response2 = requests.get(area_url, allow_redirects = False)
             code2 = response2.content.decode('utf-8')
             soup2 = BeautifulSoup(code2, features="lxml")
@@ -53,12 +54,13 @@ for city in area_details_json_data1['city']:
                     i += 1
                     restaurant_name = str(restaurant['name']).lower().replace(' ', '-')
                     restaurant_url = "http://www.hungrynaki.com/restaurant/" + restaurant['id'] + "/" + restaurant_name + "/menu"
+                    cur.callproc('insert_into_restaurant_by_area', [area['id'], restaurant['id']])
 
                     if restaurant_url not in restaurant_url_list:
 
                         print(area['name'] + " " + restaurant['name'])
                         print(restaurant_url)
-                        cur.callproc('insert_into_restaurant', [restaurant['name'], area['name'], restaurant['address']])
+                        cur.callproc('insert_into_restaurant', [restaurant['id'], restaurant['name'], restaurant['address'], restaurant_url])
                         restaurant_url_list.append(restaurant_url)
                         response3 = requests.get(restaurant_url, allow_redirects = False)
                         code3 = response3.content.decode('utf-8')
@@ -86,7 +88,7 @@ for city in area_details_json_data1['city']:
                                 #		print(menu_items['name'])
                                 for sub_items in menu_items['sub-items']:
                                     #print(sub_items)
-                                    cur.callproc('insert_into_food', [sub_items['name'], sub_items['price'], sub_items['category_name']])
+                                    cur.callproc('insert_into_food', [sub_items['id'], sub_items['name'], sub_items['price'], sub_items['category_name'], restaurant['id']])
                 except:
                     print("error")
 

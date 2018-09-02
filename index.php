@@ -52,7 +52,7 @@
 			<li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
 			<li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
 
-			<li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In<!-- <a href="login.php">Log In</a> --></li>
+			<!-- <li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In<!-- <a href="login.php">Log In</a> --></li>
 
 			<div id="id01" class="modal">
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -78,7 +78,7 @@
       					<span class="psw"><a href="signup.php">Sign UP!</a></span>
     				</div>
   				</form>
-			</div>
+			</div> -->
 		</ul>
 	</nav>
 
@@ -94,15 +94,15 @@
 
 									require 'config.php';
 
-									$statement = "select * from restaurant order by AREA";
+									$statement = "select * from area order by AREA_NAME";
 									$s = oci_parse($c, $statement);
 									oci_execute($s);
 									$i='hello';
 									while(($row = oci_fetch_assoc($s)) != false) 
 									{
-										if($row['AREA']!=$i)
+										if($row['AREA_NAME']!=$i)
 										{
-											echo "<option value='".$row['AREA']."'>".$row['AREA']."</option>";
+											echo "<option value='".$row['AREA_NAME']."'>".$row['AREA_NAME']."</option>";
 											$i=$row['AREA'];
 										}
 									}
@@ -137,6 +137,7 @@
 					</h1>
 				</div>
 				<br><br><br>
+
 
 <!-- Main Body start after the cover photo to upside of footer -->
 
@@ -342,7 +343,6 @@
 		
 	<!-- </main> -->
 	<!-- </body> -->
-
 	<footer class="footer">
   		<div class="footer-content">
 			<div class="footer-clmn1">© Design is inpired from <a href="http://diogodantas.com" target="_blank">Diogo Dantas</a> and Developed by <a href="#"><i class="footer-end">Foodo's</i></a></div>

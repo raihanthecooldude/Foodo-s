@@ -27,7 +27,8 @@
 				// $statement = "select food.* from food where CATEGORY='$food' and PRICE <= '$price'";
 
 				// $statement = "select * from food, restaurant where food.rid = restaurant.rid and category LIKE '%$food%' and price <= '$price'";
-				$statement = "select * from search_view where category LIKE '%$food%' and price <= '$price'";
+				// $statement = "select * from search_view where category LIKE '%$food%' and price <= '$price'";
+				$statement = "select * from restaurant, food where restaurant.rid = food.rid and food.category LIKE '%$food%' and food.price <= '$price'";
 
 			}
 			else
@@ -35,7 +36,8 @@
 				// $statement = "select food.* from food, restaurant where (food.RID = restaurant.RID) and (food.CATEGORY like '%$food%' and food.PRICE <= '$price' and restaurant.AREA = '$area')";
 
 				// $statement = "select * from food, restaurant where food.rid = restaurant.rid and area = '$area' and category LIKE '%$food%' and price <= '$price'";
-				$statement = "select * from search_view where area = '$area' and category LIKE '%$food%' and price <= '$price'";
+				// $statement = "select * from search_view where area = '/$area' and category LIKE '%$food%' and price <= '$price'";
+				$statement = "select * from restaurant, food, restaurant_by_area, area where restaurant_by_area.AID = area.AID and restaurant_by_area.RID = restaurant.RID and restaurant.RID = food.RID and food.category like '%$food%' and price <= '$price' and area.area_name = '$area'";
 			}
 			
 			$s = oci_parse($c, $statement);
@@ -49,7 +51,7 @@
 				// echo "<br>";
 				if($count==0)
 				{
-					echo "<tr> <th>Restaurant Name</th> <th>Food Name</th> <th>Price</th> </tr>";
+					echo "<tr> <th>Restaurant Name</th> <th>Food Name</th> <th>Price</th> <th>Order</th> </tr>";
 				}
 				$count=1;
 
@@ -57,6 +59,7 @@
 				echo "<td>".$row['RESTAURANT_NAME']."</td>";
 				echo "<td>".$row['FOOD_NAME']."</td>";
 				echo "<td>".$row['PRICE']."</td>";
+				echo "<td><button class='order-now-btn'><a href=\"$row[RESTAURANT_LINK]\" target=\"_blank\">Order Now</a></button></td>";
 				echo "</tr>";
 			}
 

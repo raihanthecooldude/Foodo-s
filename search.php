@@ -63,7 +63,7 @@
 			<li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
 			<li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
 
-			<li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In<!-- <a href="login.php">Log In</a> --></li>
+			<!-- <li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In<!-- <a href="login.php">Log In</a> --></li>
 
 			<div id="id01" class="modal">
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -89,7 +89,7 @@
       					<span class="psw"><a href="signup.php">Sign UP!</a></span>
     				</div>
   				</form>
-			</div>
+			</div> -->
 		</ul>
 	</nav>
 
