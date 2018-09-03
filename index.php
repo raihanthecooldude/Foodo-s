@@ -52,7 +52,7 @@
 			<li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
 			<li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
 
-			<!-- <li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In<!-- <a href="login.php">Log In</a> --></li>
+			<!-- <li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In <a href="login.php">Log In</a></li>
 
 			<div id="id01" class="modal">
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -74,7 +74,7 @@
     				</div>
 
     				<div class="container" style="background-color:#f1f1f1">
-      					<!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
+      					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       					<span class="psw"><a href="signup.php">Sign UP!</a></span>
     				</div>
   				</form>
@@ -131,7 +131,7 @@
 									oci_close($c);
 								?>
 							</select>
-							<input type="text" name="price" placeholder="Price" class="price-bar price-text" required>
+							<input type="number" name="price" placeholder="Price" class="price-bar price-text" required>
 							<button type="submit" name="hello" class="search-button">Search</button> 
 						</form>
 					</h1>

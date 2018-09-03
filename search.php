@@ -31,6 +31,53 @@
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 
 	<title>Result</title>
+
+	<style>
+        input[type=text] {
+            width: 130px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            #border-radius: 4px;
+            font-size: 16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            background-color: white;
+            background-image: url('img/search-icon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+            width: 100%;
+
+    </style>
+
+	<script>
+        function showResult(str) {
+            if (str.length==0) {
+                document.getElementById("livesearch").innerHTML="";
+                document.getElementById("livesearch").style.border="0px";
+                return;
+            }
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            } else {  // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function() {
+                if (this.readyState==4 && this.status==200) {
+                    document.getElementById("livesearch").innerHTML=this.responseText;
+                    document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+                }
+            }
+            xmlhttp.open("GET","livesearch.php?q="+str,true);
+            xmlhttp.send();
+        }
+    </script>
 </head>
 
 <body class="cd-body">
@@ -63,7 +110,7 @@
 			<li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
 			<li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
 
-			<!-- <li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In<!-- <a href="login.php">Log In</a> --></li>
+			<!-- <li class="cd-label" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Log In <a href="login.php">Log In</a></li>
 
 			<div id="id01" class="modal">
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -85,7 +132,7 @@
     				</div>
 
     				<div class="container" style="background-color:#f1f1f1">
-      					<!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
+      					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       					<span class="psw"><a href="signup.php">Sign UP!</a></span>
     				</div>
   				</form>
@@ -104,6 +151,11 @@
 		<div class="cd-container" style="margin-top: 10rem;">
 			<h4 style="color: rgb(212,175,55);"></h4>
 			<h1 style="font-family: Calibri;">Result: <?php $_SESSION['area'] = $_GET['area']; echo $_SESSION['area']; ?></h1>
+			<br><br>
+			<!-- <form>
+        <input type="text" name="search" placeholder="Search" onkeyup="showResult(this.value)">
+    	</form>
+    	<div id="livesearch" style="border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;"></div> -->
 			<br><br>
 			<table class="result-table" align="center" style="line-height: 1.6; font-family: Calibri; font-size: 16px; color: black;">
 				<?php
@@ -165,7 +217,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
 </script>
 
 </body>
