@@ -148,7 +148,10 @@
 				<br><br><br>
 
 	<div class="cd-main-body cd-main-content box-shadow">
+
 		<div class="cd-container" style="margin-top: 10rem;">
+			
+			<p><a href="index.php">Search Again!</a></p><br><br>
 			<h4 style="color: rgb(212,175,55);"></h4>
 			<h1 style="font-family: Calibri;">Result: <?php $_SESSION['area'] = $_GET['area']; echo $_SESSION['area']; ?></h1>
 			<br><br>
