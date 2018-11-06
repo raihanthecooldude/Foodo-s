@@ -28,7 +28,7 @@
 		
 		<a class="cd-primary-nav-trigger" href="#0">
 			<span class="cd-menu-text"></span><span class="cd-menu-icon"></span>
-		</a> <!-- cd-primary-nav-trigger -->
+		</a><!-- cd-primary-nav-trigger -->
 	</div>
 
 	<nav>
